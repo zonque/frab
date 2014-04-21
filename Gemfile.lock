@@ -170,6 +170,11 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.1.1)
+    twitter-bootstrap-rails (2.2.8)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
@@ -217,6 +222,7 @@ DEPENDENCIES
   sqlite3
   sucker_punch
   transitions
+  twitter-bootstrap-rails
   uglifier
   will_paginate
   yard
