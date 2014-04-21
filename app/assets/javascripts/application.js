@@ -12,6 +12,7 @@
 //= require bootstrap-tabs
 //= require bootstrap-buttons
 //= require cocoon
+//= require_tree .
 
 $(function() {
   $('.topbar').dropdown();
