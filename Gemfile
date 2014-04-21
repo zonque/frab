@@ -16,7 +16,7 @@ gem 'barista'
 gem 'bcrypt'
 gem 'cancan'
 gem 'cocoon'
-gem 'formtastic'
+gem 'formtastic', '~> 2.3.0rc'
 gem 'formtastic-bootstrap', '~> 3.0.0'
 gem 'haml'
 

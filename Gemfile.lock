@@ -60,7 +60,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    formtastic (2.2.1)
+    formtastic (2.3.0.rc3)
       actionpack (>= 3.0)
     formtastic-bootstrap (3.0.0)
       formtastic (>= 2.2)
@@ -197,7 +197,7 @@ DEPENDENCIES
   cocoon
   coffee-rails
   factory_girl_rails (~> 4.0)
-  formtastic
+  formtastic (~> 2.3.0rc)
   formtastic-bootstrap (~> 3.0.0)
   github-markdown
   haml
