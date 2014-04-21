@@ -17,7 +17,7 @@ gem 'bcrypt'
 gem 'cancan'
 gem 'cocoon'
 gem 'formtastic'
-#gem 'formtastic-bootstrap', :git => "git://github.com/frab/formtastic-bootstrap.git"
+gem 'formtastic-bootstrap', '~> 3.0.0'
 gem 'haml'
 
 # Use jquery as the JavaScript library
