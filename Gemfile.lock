@@ -87,7 +87,7 @@ GEM
     mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    paper_trail (3.0.1)
+    paper_trail (3.0.3)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     paperclip (4.1.1)
@@ -206,7 +206,7 @@ DEPENDENCIES
   minitest
   mysql2
   nokogiri
-  paper_trail
+  paper_trail (~> 3.0.3)
   paperclip (~> 4.1)
   pg
   prawn (< 1.0)

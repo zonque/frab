@@ -29,7 +29,7 @@ gem 'jbuilder'
 #gem 'localized_language_select', '0.2.0', :git => "git://github.com/frab/localized_language_select.git"
 gem 'nokogiri'
 gem "paperclip", "~> 4.1"
-gem 'paper_trail'
+gem 'paper_trail', '~> 3.0.3'
 gem 'prawn', '< 1.0'
 gem 'prawn_rails'
 gem 'ransack'
