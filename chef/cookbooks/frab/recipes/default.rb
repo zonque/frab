@@ -11,7 +11,7 @@ when "debian", "ubuntu"
   package "libxslt-dev"
   package "nodejs"
   package "git"
-  package "ruby1.9.1-dev"
+  package "ruby2.0-dev"
   
   execute "gem-bundler" do
     command "gem install bundler"
@@ -35,6 +35,13 @@ when "debian", "ubuntu"
     command "cp config/settings.yml.template config/settings.yml"
     cwd frab_folder
     creates 'config/settings.yml'
+    action :run
+  end
+
+  execute "frab-config" do
+    command "cp config/secrets.yml.example config/secrets.yml"
+    cwd frab_folder
+    creates 'config/secrets.yml'
     action :run
   end
 

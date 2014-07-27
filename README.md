@@ -29,11 +29,11 @@ than 5 parallel tracks (plus devrooms) over 2 days.
 
 ## Installing
 
-frab is a pretty standard Ruby on Rails (version 3.2) application.
+frab is a pretty standard Ruby on Rails (version 4.1) application.
 There should be plenty of tutorials online on how to install,
 deploy and setup these.
 
-Basically, to get started you need git, ruby (>= 1.9.3) and bundler
+Basically, to get started you need git, ruby (>= 2.1) and bundler
 and follow these steps:
 
 1) Clone the repository
