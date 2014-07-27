@@ -37,7 +37,7 @@ GEM
     bullet (4.8.0)
       activesupport
       uniform_notifier (>= 1.4.0)
-    cancan (1.6.10)
+    cancancan (1.9.1)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     climate_control (0.0.3)
@@ -195,7 +195,7 @@ DEPENDENCIES
   barista
   bcrypt
   bullet
-  cancan
+  cancancan (~> 1.9)
   cocoon
   coffee-rails
   factory_girl_rails (~> 4.0)
