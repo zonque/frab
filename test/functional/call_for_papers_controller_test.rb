@@ -20,8 +20,9 @@ class CallForPapersControllerTest < ActionController::TestCase
 
   test "should create cfp" do
     new_conference = FactoryGirl.create(:conference)
+    call_for_papers = FactoryGirl.build(:call_for_papers, conference: new_conference)
+
     assert_difference('CallForPapers.count') do
-      call_for_papers = FactoryGirl.build(:call_for_papers, conference: new_conference)
       post :create, call_for_papers: call_for_papers.attributes, conference_acronym: new_conference.acronym
     end
   end
