@@ -43,6 +43,7 @@ gem 'will_paginate'
 
 group :development, :test do
   gem 'bullet'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -52,7 +53,6 @@ end
 
 group :development do
   gem 'quiet_assets' # silence asset requests
-  gem 'pry-rails'
 end
 
 group :doc do
