@@ -15,5 +15,5 @@
     = f.input :recording_license, hint: "If the conference allows speakers to choose the talks recordings license, which license should apply?"
     = dynamic_association :links, t("cfp.links"), f
     = dynamic_association :event_attachments, t("cfp.uploaded_files"), f
-  = f.buttons  do
-    = f.commit_button :button_html => {:class => "btn primary"}
+  = f.actions  do
+    = f.action :submit, :button_html => {:class => "btn primary"}

@@ -9,6 +9,6 @@
         = f.inputs do
           = f.input :password
           = f.input :password_confirmation
-        = f.buttons do
-          = f.commit_button t("cfp.change_password_button"), :button_html => {:class => "btn primary"}
-          = link_to t("cfp.back"), :back, :class => "btn" 
+        = f.actions do
+          = f.action :submit, label: t("cfp.change_password_button"), :button_html => {:class => "btn primary"}
+          = f.action :cancel, label: t('cfp.back'), as: :link, button_html: { class: 'btn' }

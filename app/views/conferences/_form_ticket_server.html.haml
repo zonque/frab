@@ -6,5 +6,5 @@
     = ts.input :user, :hint => "Username used to create tickets"
     = ts.input :password, :hint => "Password used to log into ticket system"
 
-  = f.buttons do
-    = f.commit_button :button_html => {:class => "btn primary", :icon => "tick"}
+  = f.actions do
+    = f.action :submit, :button_html => {:class => "btn primary", :icon => "tick"}

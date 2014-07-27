@@ -27,5 +27,5 @@
     = f.input :recording_license, hint: "Recording license for this talk"
     = dynamic_association :links, "Links", f
     = dynamic_association :event_attachments, "Uploaded files", f
-  = f.buttons do
-    = f.commit_button :button_html => {:class => "primary"}
+  = f.actions do
+    = f.action :submit, :button_html => {:class => "primary"}

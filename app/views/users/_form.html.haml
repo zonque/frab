@@ -12,6 +12,6 @@
         = dynamic_association :conference_users, t(:conference_user), f
       - else
         %p.inline-hint You need to save before adding conferences to a crew member.
-  = f.buttons do
-    = f.commit_button :button_html => {:class => "btn primary"}
-    = link_to "Cancel", :back, :class => "btn"
+  = f.actions do
+    = f.action :submit, :button_html => {:class => "btn primary"}
+    = f.action :cancel, as: :link, button_html: { class: 'btn' }

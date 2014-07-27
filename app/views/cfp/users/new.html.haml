@@ -10,6 +10,6 @@
           = f.input :email
           = f.input :password
           = f.input :password_confirmation
-        = f.buttons do
-          = f.commit_button t("cfp.sign_up"), :button_html => {:class => "btn primary"}
-          = link_to t("cfp.back"), new_cfp_session_path, :class => "btn"
+        = f.actions do
+          = f.action :submit, label: t("cfp.sign_up"), :button_html => {:class => "btn primary"}
+          = f.action :cancel, label: t('cfp.back'), as: :link, button_html: { class: 'btn' }

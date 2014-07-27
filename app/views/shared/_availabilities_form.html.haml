@@ -6,9 +6,9 @@
       - availability = availabilities.select{ |a| a.day == day }.first
       - availability.nil? and availability = Availability.new(:day => day, :conference => conference)
       = render(:partial => 'shared/availabilities_slider', :locals => { :f => f, :day => day, :availability => availability })
-  = f.buttons do
+  = f.actions do
     - if can? :crud, person
-      = f.commit_button t("cfp.save_availability"), :button_html => {:class => "btn primary"}
+      = f.action :submit, label: t("cfp.save_availability"), :button_html => {:class => "btn primary"}
 
 :javascript
   $(function() {

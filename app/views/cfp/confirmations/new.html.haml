@@ -7,6 +7,6 @@
       = semantic_form_for(@user, :url => cfp_user_confirmation_path, :html => { :method => :post }) do |f|
         = f.inputs do
           = f.input :email
-        = f.buttons do
-          = f.commit_button t("cfp.resend_confirmation_button"), :button_html => {:class => "btn primary"}
-          = link_to t("cfp.back"), :back, :class => "btn" 
+        = f.actions do
+          = f.action :submit, label: t("cfp.resend_confirmation_button"), :button_html => {:class => "btn primary"}
+          = f.action :cancel, label: t('cfp.back'), as: :link, button_html: { class: 'btn' }

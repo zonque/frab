@@ -17,6 +17,6 @@
     = f.input :description, :input_html => {:class => "span6"}, :hint => "A longer description of this person. Use this to give additional details that did not fit in the abstract. (HTML)"
     = f.input :note, :hint => "visibility: admin only."
     = dynamic_association :links, "Links", f
-  = f.buttons do
-    = f.commit_button :button_html => {:class => "primary"}
-    = link_to "Cancel", :back, :class => "btn"
+  = f.actions do
+    = f.action :submit, :button_html => {:class => "primary"}
+    = f.action :cancel, as: :link, button_html: { class: 'btn' }

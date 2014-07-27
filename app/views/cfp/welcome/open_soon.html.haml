@@ -30,8 +30,8 @@
           = f.input :password
           - if false 
             = f.input :remember_me, :as => :boolean
-        = f.buttons do
-          = f.commit_button t("cfp.sign_in"), :button_html => {:class => "btn primary"}
+        = f.actions do
+          = f.action :submit, label: t("cfp.sign_in"), :button_html => {:class => "btn primary"}
     .span8
       %h2=t("cfp.sign_up_headline") 
       %p=t("cfp.sign_up_description", :title => @conference.title)

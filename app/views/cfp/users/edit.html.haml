@@ -8,6 +8,6 @@
           = f.input :email
           = f.input :password, :hint => t("cfp.password_hint") 
           = f.input :password_confirmation
-        = f.buttons do
-          = f.commit_button t("cfp.update"), :button_html => {:class => "btn primary"}
-          = link_to t("cfp.back"), :back, :class => "btn"
+        = f.actions do
+          = f.action :submit, label: t("cfp.update"), :button_html => {:class => "btn primary"}
+          = f.action :cancel, label: t('cfp.back'), as: :link, button_html: { class: 'btn' }

@@ -6,5 +6,5 @@
   = f.inputs do
     = f.input :rating, :as => :radio, :collection => 1..5, :hint => t('.how_would_you_rate')
     = f.input :comment, :input_html => {:rows => 4}, :hint => t('.what_did_you_like')
-  = f.buttons do
-    = f.commit_button t('.submit_feedback')
+  = f.actions do
+    = f.action :submit, label: t('.submit_feedback')
