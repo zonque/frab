@@ -126,6 +126,7 @@ class EventsController < BaseConferenceController
   def edit
     @event = authorize Event.find(params[:id])
     @start_time_options = PossibleStartTimes.new(@event).all
+    @other_conferences = Conference.where.not(id: @event.conference.id)
   end
 
   # GET /events/2/edit_people
@@ -161,6 +162,7 @@ class EventsController < BaseConferenceController
       else
         flash_model_errors(@event)
         @start_time_options = PossibleStartTimes.new(@event).all
+        @other_conferences = Conference.where.not(id: @event.conference.id)
         format.html { render action: 'edit' }
         format.js { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -227,6 +229,25 @@ class EventsController < BaseConferenceController
 
     respond_to do |format|
       format.html { redirect_to(events_url) }
+    end
+  end
+
+  def copy_to_conference
+    old_event = authorize Event.find(params[:id])
+    new_event = old_event.dup
+
+    new_conference = Conference.find(params[:event][:conference_id])
+    new_event.conference = new_conference
+    authorize new_conference, :manage?
+
+    new_event.event_attachments = old_event.event_attachments.map(&:dup)
+    new_event.event_people = old_event.event_people.map(&:dup)
+
+    new_event.save!
+
+    respond_to do |format|
+      format.html { redirect_to(new_event, notice: 'Event was successfully created.') }
+      format.xml  { render xml: new_event, status: :created, location: new_event }
     end
   end
 

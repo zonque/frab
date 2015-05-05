@@ -11,6 +11,7 @@ class EventPolicy < ApplicationPolicy
 
   alias create? edit?
   alias custom_notification? edit?
+  alias copy_to_conference? edit?
   alias destroy? edit?
   alias edit_people? edit?
   alias update? edit?

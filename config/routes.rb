@@ -130,6 +130,7 @@ Rails.application.routes.draw do
           get :ticket
           put :update_state
           post :custom_notification
+          put :copy_to_conference
         end
         resource :event_rating
         resources :event_feedbacks
