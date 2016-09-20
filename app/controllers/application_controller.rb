@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_action :set_locale
-  before_filter :set_paper_trail_whodunnit
-  prepend_before_filter :load_conference
+  before_action :set_paper_trail_whodunnit
+  prepend_before_action :load_conference
 
   helper_method :current_user
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       if current_user.is_submitter?
         redirect_to cfp_root_path, notice: t(:"ability.denied")
       else
-        redirect_to :back, notice: t(:"ability.denied")
+        redirect_back(fallback_location: root_path, notice: t(:"ability.denied"))
       end
     rescue ActionController::RedirectBackError
       redirect_to root_path

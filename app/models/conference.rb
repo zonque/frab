@@ -43,7 +43,7 @@ class Conference < ActiveRecord::Base
   scope :has_submission, ->(person) {
     joins(events: [{ event_people: :person }])
       .where(EventPerson.arel_table[:event_role].in(%w(speaker moderator)))
-      .where(Person.arel_table[:id].eq(person.id)).uniq
+      .where(Person.arel_table[:id].eq(person.id)).distinct
   }
 
   scope :creation_order, -> { order('conferences.created_at DESC') }

@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   has_many :availabilities, dependent: :destroy
   has_many :event_people, dependent: :destroy
   has_many :event_ratings, dependent: :destroy
-  has_many :events, -> { uniq }, through: :event_people
+  has_many :events, -> { distinct }, through: :event_people
   has_many :im_accounts, dependent: :destroy
   has_many :languages, as: :attachable, dependent: :destroy
   has_many :links, as: :linkable, dependent: :destroy
@@ -38,13 +38,13 @@ class Person < ActiveRecord::Base
   # validates_inclusion_of :gender, in: GENDERS, allow_nil: true
 
   scope :involved_in, ->(conference) {
-    joins(events: :conference).where("conferences.id": conference.id).uniq
+    joins(events: :conference).where("conferences.id": conference.id).distinct
   }
   scope :speaking_at, ->(conference) {
-    joins(events: :conference).where("conferences.id": conference.id).where("event_people.event_role": %w(speaker moderator)).where("events.state": %w(unconfirmed confirmed)).uniq
+    joins(events: :conference).where("conferences.id": conference.id).where("event_people.event_role": %w(speaker moderator)).where("events.state": %w(unconfirmed confirmed)).distinct
   }
   scope :publicly_speaking_at, ->(conference) {
-    joins(events: :conference).where("conferences.id": conference.id).where("event_people.event_role": %w(speaker moderator)).where("events.public": true).where("events.state": %w(unconfirmed confirmed)).uniq
+    joins(events: :conference).where("conferences.id": conference.id).where("event_people.event_role": %w(speaker moderator)).where("events.public": true).where("events.state": %w(unconfirmed confirmed)).distinct
   }
   scope :confirmed, ->(conference) {
     joins(events: :conference).where("conferences.id": conference.id).where("events.state": 'confirmed')
@@ -106,7 +106,7 @@ class Person < ActiveRecord::Base
   end
 
   def role_state(conference)
-    speaker_role_state(conference).map(&:role_state).uniq.join ', '
+    speaker_role_state(conference).map(&:role_state).distinct.join ', '
   end
 
   def set_role_state(conference, state)

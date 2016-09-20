@@ -211,7 +211,7 @@ class Event < ActiveRecord::Base
       [
         self.conference.acronym,
         self.id,
-        self.title.parameterize('_')
+        self.title.parameterize(separator: '_')
       ].flatten.join('-'),
       escape: false,
       length: 240,
