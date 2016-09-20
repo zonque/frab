@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     authorize! :read, Event
 
     @events = search @conference.events.includes(:track), params
+    @safe_params = params.permit(:track_name, :event_type, :event_state, q: :s)
 
     clean_events_attributes
     respond_to do |format|
