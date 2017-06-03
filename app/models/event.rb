@@ -120,6 +120,12 @@ class Event < ApplicationRecord
     ticket.present? and ticket.remote_ticket_id.present?
   end
 
+  def cfp_closed?
+    return false if conference.nil?
+    return false if conference.call_for_participation.nil?
+    !conference.call_for_participation.is_open?
+  end
+
   def slug
     truncate(
       [

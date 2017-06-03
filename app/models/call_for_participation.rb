@@ -16,4 +16,8 @@ class CallForParticipation < ApplicationRecord
   def still_running?
     end_date > Date.today
   end
+
+  def is_open?
+    Time.zone.now > start_date and Time.zone.now < end_date
+  end
 end
