@@ -9,7 +9,10 @@
     = f.input :event_type, collection: translated_options(Event::TYPES)
     = f.association :track, collection: @conference.tracks
     = f.input :time_slots, as: :select, collection: timeslots
-    = f.input :language, as: :language_select, only: @conference.language_codes
+    - if @conference.language_codes.count > 1
+      = f.input :language, as: :language_select, only: @conference.language_codes
+    - else
+      = f.hidden_field :language, name: 'language', value: @conference.language_codes.first
     = f.input :public, as: :inline_boolean, hint: t('events_module.inputs.hints.public')
     = image_input_box(f.object.logo)
     = f.input :logo
