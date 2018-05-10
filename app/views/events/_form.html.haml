@@ -8,6 +8,10 @@
       = f.simple_fields_for :ticket do |ticket|
         = ticket.input :remote_ticket_id
     = f.input :event_type, collection: translated_options(Event::TYPES)
+    - if Event::TYPES.count > 1
+      = f.input :event_type, collection: translated_options(Event::TYPES)
+    - else
+      = f.hidden_field :event_type, name: 'event_type', value: Event::TYPES.first
     = f.association :track, collection: @conference.tracks
     = f.input :time_slots, as: :select, collection: timeslots
     - if @conference.language_codes.count > 1
