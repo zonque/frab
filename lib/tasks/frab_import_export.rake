@@ -22,4 +22,16 @@ namespace :frab do
     require 'import_export_helper.rb'
     ImportExportHelper.new.run_import(export_path)
   end
+
+  desc "export events"
+  task simple_export: :environment do
+    CSV.open("tmp/simple_export.csv", "w", col_sep: ";", headers: true) do |csv|
+      csv << %w(title duration speakers)
+
+      c = Conference.find_by(acronym: ENV["CONFERENCE"])
+      c.events.each do |e|
+        csv << [ e.title, e.time_slots * c.timeslot_duration, e.event_people.map { |ep| "#{ep.person.full_name} (#{ep.event_role})" }.join(",") ].flatten
+      end
+    end
+  end
 end
