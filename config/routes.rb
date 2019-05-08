@@ -66,6 +66,7 @@ Rails.application.routes.draw do
             put :accept
             put :withdraw
             put :confirm
+            post :confirm
           end
         end
         root to: 'welcome#show'
