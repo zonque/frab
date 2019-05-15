@@ -11,9 +11,12 @@ module Searchable
       terms = options.map { |o| [o, term] }.to_h
       terms[:m] = 'or'
       terms[:s] = params.dig(:q, :s)
-      models.ransack(terms)
+      r = models.ransack(terms)
     else
-      models.ransack(params[:q])
+      r = models.ransack(params[:q])
     end
+
+    r.sorts = 'created_at desc' if r.sorts.empty?
+    r
   end
 end
