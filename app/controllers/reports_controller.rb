@@ -88,14 +88,26 @@ class ReportsController < BaseConferenceController
       r = conference_people.involved_in(@conference).where(Person.arel_table[:note].not_eq(''))
     when 'people_with_more_than_one'
       r = conference_people.involved_in(@conference).where('event_people.event_role' => ['submitter']).group('event_people.person_id').having('count(*) > 1')
-    when 'people_with_non_reimbursed_expenses'
-      r = conference_people.involved_in(@conference).joins(:expenses).where('expenses.value > 0 AND expenses.reimbursed = ? AND expenses.conference_id = ?', false, @conference.id)
-      @total_sum = 0
+    when 'people_with_expenses'
+      r = conference_people.involved_in(@conference).joins(:expenses).where('expenses.value > 0 AND expenses.conference_id = ?', @conference.id)
+      @total_sum_reimbursed = 0
+      @total_sum_non_reimbursed = 0
       r.each do |p|
-        @total_sum += p.sum_of_expenses(@conference, false)
+        @total_sum_reimbursed += p.sum_of_expenses(@conference, true)
+        @total_sum_non_reimbursed += p.sum_of_expenses(@conference, false)
       end
 
-      @extra_fields << :expenses
+      @extra_fields << :reimbursed_expenses
+      @extra_fields << :non_reimbursed_expenses
+    when 'people_with_non_reimbursed_expenses'
+      r = conference_people.involved_in(@conference).joins(:expenses).where('expenses.value > 0 AND expenses.reimbursed = ? AND expenses.conference_id = ?', false, @conference.id)
+      @total_sum_non_reimbursed = 0
+      r.each do |p|
+        @total_sum_non_reimbursed += p.sum_of_expenses(@conference, false)
+      end
+
+      @extra_fields << :non_reimbursed_expenses
+      @extra_fields << :expenses_total_sum
     when 'non_attending_speakers'
       r = Person.joins(events: :conference)
         .where('conferences.id': @conference.id)

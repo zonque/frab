@@ -409,6 +409,7 @@ de:
   col_last_login: 'Letzte Anmeldung:'
   col_last_name: 'Nachname:'
   col_links: 'Links:'
+  col_reimbursed_expenses: 'Erstattete Spesen:'
   col_non_reimbursed_expenses: 'Nicht erstattete Spesen:'
   col_notes_admin: 'Notizen (admin):'
   col_phone_number_with_type: 'Telefonnummer (%{type}):'
@@ -1918,6 +1919,7 @@ de:
     people_speaking_by_day: bestätigte Sprecher am Tag mit Anwesenheitsstatus
     people_with_a_note: Personen mit einer Notiz in ihrer Einreichung
     people_with_more_than_one: Personen mit mehr als einer Einreichung
+    people_with_expenses: Personen mit Spesen
     people_with_non_reimbursed_expenses: Personen mit nicht erstatteten Spesen
     query_speakers: Sprecher abfragen
     speakers_without_availabilities: Sprecher ohne Verfügbarkeit

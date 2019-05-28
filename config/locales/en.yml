@@ -377,6 +377,7 @@ en:
   col_last_login: 'Last login:'
   col_last_name: 'Last name:'
   col_links: 'Links:'
+  col_reimbursed_expenses: 'Reimbursed expenses:'
   col_non_reimbursed_expenses: 'Non-reimbursed expenses:'
   col_notes_admin: 'Notes (admin):'
   col_phone_number_with_type: 'Phone number (%{type}):'
@@ -1894,6 +1895,7 @@ en:
     people_speaking_by_day: confirmed speakers by day with attendance status
     people_with_a_note: people with a note in their submission
     people_with_more_than_one: people with more than one submission
+    people_with_expenses: people with expenses
     people_with_non_reimbursed_expenses: people with non-reimbursed expenses
     query_speakers: Query Speakers
     speakers_without_availabilities: speakers without availabilities

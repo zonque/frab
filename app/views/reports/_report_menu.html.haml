@@ -21,6 +21,7 @@
   %li= link_to t('reports_module.people_with_a_note'), report_on_people_path("people_with_a_note")
   %li= link_to t('reports_module.people_with_more_than_one'), report_on_people_path("people_with_more_than_one")
   - if @conference.expenses_enabled?
+    %li= link_to t('reports_module.people_with_expenses'), report_on_people_path("people_with_expenses")
     %li= link_to t('reports_module.people_with_non_reimbursed_expenses'), report_on_people_path("people_with_non_reimbursed_expenses")
   %li= link_to t('non_attending_speakers'), report_on_people_path("non_attending_speakers")
   %li= link_to t('speakers_without_availabilities'), report_on_people_path("speakers_without_availabilities")
