@@ -65,6 +65,13 @@ class Public::ScheduleController < ApplicationController
     end
   end
 
+  def list
+    @view_model = ScheduleViewModel.new(@conference)
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def event
     @view_model = ScheduleViewModel.new(@conference).for_event(params[:id])
     respond_to do |format|

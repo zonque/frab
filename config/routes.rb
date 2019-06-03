@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         get '/events' => 'schedule#events', as: 'events'
         get '/timeline' => 'schedule#timeline', as: 'timeline'
         get '/booklet' => 'schedule#booklet', as: 'booklet'
+        get '/list' => 'schedule#list', as: 'list'
         get '/events/:id' => 'schedule#event', as: 'event'
         get '/speakers' => 'schedule#speakers', as: 'speakers'
         get '/speakers/:id' => 'schedule#speaker', as: 'speaker'

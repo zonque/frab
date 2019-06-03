@@ -1,0 +1,20 @@
+- content_for :title do
+  = "#{t('.events')} | #{schedule_title}"
+
+%h2.title= t '.events'
+
+- @view_model.events.each do |event|
+  %h2= event.title
+  - if !event.subtitle.empty?
+    %small= event.subtitle
+    %br
+  %small{ style: "color: rgba(255,0,255)" }= event.event_type
+  %br
+  %br
+  %small{ style: "color: rgba(128, 128, 128)" }= event.speakers.map { |sp| sp.public_name }.join(",")
+  %br
+  %br
+  %p= event.abstract
+  %br
+  %br
+  %hr.short
