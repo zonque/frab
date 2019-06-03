@@ -31,8 +31,8 @@
 
           - if event.abstract.present?
             %p= simple_format event.abstract
-          - if event.description.present?
-            %p= simple_format event.description
+          -# - if event.description.present?
+          -#   %p= simple_format event.description
           .speakers
             %ul
               - event.speakers.each do |speaker|
