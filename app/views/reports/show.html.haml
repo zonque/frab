@@ -25,6 +25,11 @@
           = render 'events_table', events: @events
           = actions_bar do
             = will_paginate @events
+  - if not @time_slots.nil? and not @time_slots.empty?
+    .row
+      .span16
+        = render 'time_slots_table', time_slots: @time_slots
+
   - if not @data.nil? and not @data.empty?
     .row
       .span16

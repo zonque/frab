@@ -1,0 +1,13 @@
+%table.zebra-stripe
+  %thead
+    %tr
+      %th= t('start_time')
+      %th= t('possible_events')
+  %tbody
+    - time_slots.each do |slot, events|
+      %tr
+        %td= slot
+        %td
+          %ul
+            - events.each do |event|
+              %li= link_to event.title, event

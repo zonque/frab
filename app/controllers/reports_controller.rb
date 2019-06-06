@@ -209,4 +209,24 @@ class ReportsController < BaseConferenceController
 
     render :show
   end
+
+  def show_time_slots
+    start_times = @conference.days.map { |d| d.start_times }.flatten!
+    time_slots = {}
+
+    @conference.events.confirmed.each do |event|
+      possible_times = PossibleStartTimes.new(event).all.map { |k,v| v.first.first }
+
+      next if possible_times.nil?
+
+      possible_times.each do |t|
+        time_slots[t] ||= []
+        time_slots[t] << event
+      end
+    end
+
+    @time_slots = time_slots.sort.to_h
+
+    render :show
+  end
 end
